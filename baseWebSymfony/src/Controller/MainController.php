@@ -8,12 +8,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class MainController extends Controller
 {
     /**
-     * @Route("/main", name="main")
+     * @Route("/", name="index")
      */
     public function index()
     {
-        return $this->render('main/index.html.twig', [
+        return $this->render('main/login.html.twig', [
             'controller_name' => 'MainController',
         ]);
+    }
+
+
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function admin() {
+        return $this->render("admin/login.html.twig");
     }
 }
