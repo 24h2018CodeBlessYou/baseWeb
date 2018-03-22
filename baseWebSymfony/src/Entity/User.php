@@ -51,7 +51,7 @@ class User implements UserInterface, \Serializable
     /**
      * @var array
      *
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json_array")
      */
     private $roles = [];
 
@@ -128,12 +128,19 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * Retourne le roles des users
+     *
      * @return array
      */
     public function getRoles(): array
     {
+        if(empty($roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+
         return $this->roles;
     }
+
 
     /**
      * @param array $roles
@@ -147,17 +154,24 @@ class User implements UserInterface, \Serializable
 
     public function serialize()
     {
-        // TODO: Implement serialize() method.
+        return serialize([$this->id, $this->username, $this->password]);
     }
 
     public function unserialize($serialized)
     {
-        // TODO: Implement unserialize() method.
+        [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
     }
 
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+        return null;
     }
 
 
