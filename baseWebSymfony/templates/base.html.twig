@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+        <script src="{{ asset('js/materialize.js') }}"></script>
+        <script src="{{ asset('js/menu.js') }}"></script>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -16,8 +19,21 @@
                     <li><a href="badges.html">Exemple</a></li>
                     <li><a href="collapsible.html">Contact</a></li>
                 </ul>
+                <ul id="slide-out" class="sidenav">
+                    <li>
+                        <div style="height:20px;"></div>
+                    </li>
+                    <li><a href="#!">Accueil</a></li>
+                    <li><a href="#!">Exemple</a></li>
+                    <li><a href="#!">Contact</a></li>
+                    <li><div class="divider"></div></li>
+                    <li><a class="subheader">CodeBlessYou</a></li>
+                </ul>
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><img class="material-icons icon_menu" width="40" src="{{ asset('img/menu_icon.svg') }}" /></a>
             </div>
         </nav>
+
+
 
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
