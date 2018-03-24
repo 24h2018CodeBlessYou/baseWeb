@@ -22,6 +22,6 @@ class MainController extends Controller
      * @Route("/admin", name="admin")
      */
     public function admin() {
-        return $this->render("admin/login.html.twig");
+        return $this->render("admin/index.html.twig");
     }
 }

@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ORM\Table(name="user", options={"collate"="utf8mb4_unicode_ci", "charset"="utf8mb4"})
+ * @ORM\Table(name="user")
  */
 class User implements UserInterface, \Serializable
 {
@@ -23,28 +23,28 @@ class User implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(type="string",length=30)
+     * @ORM\Column(type="string")
      */
     private $fullName;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", unique=true,length=30)
+     * @ORM\Column(type="string", unique=true)
      */
     private $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", unique=true,length=190)
+     * @ORM\Column(type="string", unique=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string",length=190)
+     * @ORM\Column(type="string")
      */
     private $password;
 
@@ -66,7 +66,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getFullName(): string
+    public function getFullName(): ?string
     {
         return $this->fullName;
     }
@@ -82,7 +82,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
@@ -98,7 +98,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -114,7 +114,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
