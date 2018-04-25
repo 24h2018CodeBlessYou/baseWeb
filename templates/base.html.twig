@@ -13,16 +13,16 @@
 <body>
 <nav>
     <div class="nav-wrapper blue">
-        <a href="#" class="brand-logo center">24h2k18</a>
+        <a href="{{ path('index') }}" class="brand-logo center">24h2k18</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="sass.html">Accueil</a></li>
             <li><a href="badges.html">Exemple</a></li>
             <li><a href="collapsible.html">Contact</a></li>
             {% if app.user %}
-                <li><a href="{{ path('security_logout') }}" class="waves-effect waves-light btn white grey-text text-darken-3">déconnexion</a></li>
+                <li><a href="{{ path('security_logout') }}" class="waves-effect waves-dark btn white grey-text text-darken-3">déconnexion</a></li>
             {% else %}
-                <li><a href="{{ path('security_login') }}" class="waves-effect waves-light btn white grey-text text-darken-3">login</a></li>
-                <li><a href="{{ path('security_register') }}" class="waves-effect waves-light btn white grey-text text-darken-3">register</a></li>
+                <li><a href="{{ path('security_login') }}" class="waves-effect waves-dark btn white grey-text text-darken-3">login</a></li>
+                <li><a href="{{ path('security_register') }}" class="waves-effect waves-dark btn white grey-text text-darken-3">register</a></li>
             {% endif %}
 
         </ul>
