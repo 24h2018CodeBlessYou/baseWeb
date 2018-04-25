@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
-    <script src="{{ asset('js/materialize.js') }}"></script>
-    <script src="{{ asset('js/menu.js') }}"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block stylesheets %}{% endblock %}
 </head>
@@ -20,6 +18,13 @@
             <li><a href="sass.html">Accueil</a></li>
             <li><a href="badges.html">Exemple</a></li>
             <li><a href="collapsible.html">Contact</a></li>
+            {% if app.user %}
+                <li><a href="{{ path('security_logout') }}" class="waves-effect waves-light btn white grey-text text-darken-3">déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('security_login') }}" class="waves-effect waves-light btn white grey-text text-darken-3">login</a></li>
+                <li><a href="{{ path('security_register') }}" class="waves-effect waves-light btn white grey-text text-darken-3">register</a></li>
+            {% endif %}
+
         </ul>
         <ul id="slide-out" class="sidenav">
             <li>
@@ -36,8 +41,11 @@
         </a>
     </div>
 </nav>
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
+<div class="container content">
+    {% block body %}{% endblock %}
+</div>
+
+
 
 <footer class="page-footer grey darken-2">
     <div class="container">
@@ -60,5 +68,12 @@
         </div>
     </div>
 </footer>
+
+<script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+<script src="{{ asset('js/materialize.js') }}"></script>
+<script src="{{ asset('js/menu.js') }}"></script>
+
+{% block javascripts %}{% endblock %}
+
 </body>
 </html>

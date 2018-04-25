@@ -1,3 +1,7 @@
 .icon_menu {
     margin-top:2vh;
 }
+
+.content {
+    min-height: 100vh;
+}
